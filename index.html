@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Okinawa Survival Guide — Learn Real Japanese for Life in Okinawa</title>
-  <meta name="description" content="The Japanese learning app built specifically for military families and expats living in Okinawa. Emergency phrases, games, stories and real-life scenarios. One-time purchase.">
+  <title>Okinawa Survival Guide — Real Japanese for Life in Okinawa</title>
+  <meta name="description" content="The Japanese learning app built for military families and expats in Okinawa. Emergency phrases, games, stories and real-life scenarios. $7.99 one-time.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -12,14 +12,14 @@
 
     :root {
       --midnight: #0D2B35;
+      --midnight-deep: #071820;
       --ocean: #0B8A8A;
       --ocean-light: #14B8B8;
       --coral: #E85D3C;
+      --coral-glow: rgba(232,93,60,0.3);
       --sand: #F5EDD8;
-      --sand-dark: #EDE0C4;
       --gold: #D4A017;
       --green: #2A9460;
-      --sakura: #FFB7C5;
       --white: #FFFFFF;
     }
 
@@ -27,7 +27,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--midnight);
+      background: var(--midnight-deep);
       color: var(--white);
       overflow-x: hidden;
     }
@@ -40,33 +40,35 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 32px;
-      background: rgba(13, 43, 53, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 40px;
+      background: rgba(7,24,32,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(20,184,184,0.15);
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1rem;
-      font-weight: 800;
+      font-size: 1.05rem;
+      font-weight: 900;
       color: var(--white);
       text-decoration: none;
+      letter-spacing: -0.01em;
     }
 
+    .nav-logo .logo-shisa { font-size: 1.4rem; }
     .nav-logo span { color: var(--ocean-light); }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 32px;
       list-style: none;
     }
 
     .nav-links a {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 600;
@@ -76,14 +78,15 @@
     .nav-links a:hover { color: var(--white); }
 
     .nav-cta {
-      background: var(--coral);
+      background: var(--coral) !important;
       color: var(--white) !important;
-      padding: 8px 20px;
+      padding: 9px 22px;
       border-radius: 100px;
-      font-weight: 700 !important;
+      font-weight: 800 !important;
+      box-shadow: 0 4px 20px var(--coral-glow);
     }
 
-    .nav-cta:hover { background: #d44d2c !important; }
+    .nav-cta:hover { opacity: 0.9; color: var(--white) !important; }
 
     /* ── HERO ── */
     .hero {
@@ -93,79 +96,104 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 24px 80px;
+      padding: 130px 24px 100px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(11,138,138,0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(232,93,60,0.15) 0%, transparent 50%);
+        radial-gradient(ellipse 90% 70% at 50% -10%, rgba(11,138,138,0.35) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 85% 90%, rgba(232,93,60,0.2) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(20,184,184,0.1) 0%, transparent 50%);
       pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(20,184,184,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,184,184,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent);
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(11,138,138,0.15);
-      border: 1px solid rgba(11,138,138,0.4);
+      gap: 7px;
+      background: rgba(20,184,184,0.12);
+      border: 1px solid rgba(20,184,184,0.35);
       color: var(--ocean-light);
       font-size: 0.8rem;
-      font-weight: 700;
-      padding: 6px 14px;
+      font-weight: 800;
+      padding: 7px 16px;
       border-radius: 100px;
-      margin-bottom: 24px;
-      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .hero-shisa {
-      font-size: 72px;
-      margin-bottom: 16px;
+      font-size: 120px;
+      margin-bottom: 24px;
       display: block;
-      filter: drop-shadow(0 0 40px rgba(11,138,138,0.4));
+      filter: drop-shadow(0 0 60px rgba(20,184,184,0.5)) drop-shadow(0 0 120px rgba(20,184,184,0.25));
+      animation: float 3.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .hero-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--ocean-light);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      opacity: 0.9;
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
     }
 
-    .hero-title .jp {
-      font-family: 'Noto Sans JP', sans-serif;
+    .hero-title em {
+      font-style: normal;
       color: var(--ocean-light);
-      display: block;
-      font-size: clamp(1.1rem, 3vw, 1.8rem);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
     }
 
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: rgba(255,255,255,0.65);
-      max-width: 560px;
-      margin: 0 auto 16px;
-      line-height: 1.6;
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      color: rgba(255,255,255,0.6);
+      max-width: 580px;
+      margin: 0 auto 20px;
+      line-height: 1.65;
     }
+
+    .hero-sub strong { color: rgba(255,255,255,0.9); }
 
     .hero-price {
       display: inline-block;
-      background: rgba(212,160,23,0.15);
-      border: 1px solid rgba(212,160,23,0.4);
+      background: rgba(212,160,23,0.12);
+      border: 1px solid rgba(212,160,23,0.35);
       color: var(--gold);
-      font-size: 0.9rem;
-      font-weight: 700;
-      padding: 6px 16px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 8px 20px;
       border-radius: 100px;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
     }
 
     .hero-buttons {
@@ -178,44 +206,78 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--coral);
+      gap: 9px;
+      background: linear-gradient(135deg, var(--coral), #c44a2a);
       color: var(--white);
-      font-size: 1rem;
-      font-weight: 800;
-      padding: 16px 32px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      padding: 18px 36px;
       border-radius: 100px;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 8px 32px rgba(232,93,60,0.35);
+      box-shadow: 0 8px 40px rgba(232,93,60,0.4), 0 2px 8px rgba(0,0,0,0.3);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(232,93,60,0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 56px rgba(232,93,60,0.5), 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .btn-secondary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
+      gap: 9px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.2);
       color: var(--white);
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      padding: 16px 32px;
+      padding: 18px 36px;
       border-radius: 100px;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, border-color 0.2s;
     }
 
-    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    /* scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .scroll-arrow {
+      width: 26px;
+      height: 26px;
+      border-right: 2px solid rgba(20,184,184,0.5);
+      border-bottom: 2px solid rgba(20,184,184,0.5);
+      transform: rotate(45deg);
+      animation: bounce 1.6s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.5; }
+      50% { transform: rotate(45deg) translateY(8px); opacity: 1; }
+    }
 
     /* ── EMERGENCY BANNER ── */
     .emergency-banner {
-      background: linear-gradient(135deg, #8B0000, #CC0000);
-      padding: 40px 24px;
+      background: linear-gradient(135deg, #6B0000, #AA0000, #CC0000);
+      padding: 56px 24px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -224,92 +286,174 @@
     .emergency-banner::before {
       content: '🚨';
       position: absolute;
-      font-size: 200px;
-      opacity: 0.05;
-      top: -40px;
-      right: -20px;
+      font-size: 280px;
+      opacity: 0.04;
+      top: -60px;
+      right: -40px;
+      pointer-events: none;
     }
 
     .emergency-banner h2 {
-      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
       font-weight: 900;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
     }
 
     .emergency-banner p {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: rgba(255,255,255,0.85);
       max-width: 580px;
-      margin: 0 auto;
-      line-height: 1.6;
+      margin: 0 auto 28px;
+      line-height: 1.65;
     }
 
     .emergency-phrases {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       justify-content: center;
-      margin-top: 24px;
     }
 
     .emergency-phrase {
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 10px;
-      padding: 10px 16px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      padding: 12px 18px;
       text-align: left;
     }
 
     .emergency-phrase .jp {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       display: block;
+      margin-bottom: 3px;
     }
 
-    .emergency-phrase .en {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.65);
-    }
+    .emergency-phrase .en { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
 
     /* ── SECTIONS ── */
-    section {
-      padding: 80px 24px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    section { padding: 100px 24px; }
+    .container { max-width: 1160px; margin: 0 auto; }
 
     .section-label {
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
       color: var(--ocean-light);
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
     }
 
     .section-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.6);
-      max-width: 520px;
-      line-height: 1.6;
-      margin-bottom: 48px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 540px;
+      line-height: 1.65;
+      margin-bottom: 56px;
     }
 
-    /* ── FEATURES GRID ── */
+    /* ── SCREENSHOTS ── */
+    .screenshots-section {
+      background: linear-gradient(180deg, var(--midnight-deep) 0%, #0a1f2a 100%);
+      overflow: hidden;
+    }
+
+    .screenshots-section .section-title,
+    .screenshots-section .section-label { text-align: center; }
+    .screenshots-section .section-sub { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* screenshot category tabs */
+    .ss-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+
+    .ss-tab {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .ss-tab:hover, .ss-tab.active {
+      background: rgba(20,184,184,0.15);
+      border-color: rgba(20,184,184,0.4);
+      color: var(--ocean-light);
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .screenshot-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .screenshot-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(20,184,184,0.3);
+      border-color: rgba(20,184,184,0.3);
+    }
+
+    .screenshot-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .screenshot-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px 16px 16px;
+      background: linear-gradient(transparent, rgba(7,24,32,0.95));
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .screenshot-tag {
+      display: inline-block;
+      background: rgba(20,184,184,0.2);
+      border: 1px solid rgba(20,184,184,0.4);
+      color: var(--ocean-light);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* ── FEATURES ── */
     .features-section {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     .features-grid {
@@ -319,69 +463,59 @@
     }
 
     .feature-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 20px;
-      padding: 28px;
-      transition: border-color 0.2s, transform 0.2s;
+      padding: 32px;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
     }
 
     .feature-card:hover {
-      border-color: rgba(11,138,138,0.4);
-      transform: translateY(-3px);
+      border-color: rgba(20,184,184,0.35);
+      background: rgba(20,184,184,0.05);
+      transform: translateY(-4px);
     }
 
-    .feature-emoji {
-      font-size: 2.5rem;
-      margin-bottom: 14px;
-      display: block;
-    }
+    .feature-emoji { font-size: 2.8rem; margin-bottom: 16px; display: block; }
+    .feature-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; }
+    .feature-desc { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
 
-    .feature-title {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-      color: var(--white);
+    /* ── GAMES ── */
+    .games-section {
+      background: var(--midnight-deep);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-
-    .feature-desc {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-    }
-
-    /* ── GAMES SECTION ── */
-    .games-section { background: var(--midnight); }
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 16px;
     }
 
     .game-card {
-      border-radius: 16px;
-      padding: 24px 20px;
-      position: relative;
-      overflow: hidden;
+      border-radius: 20px;
+      padding: 28px 22px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .game-card.coral { background: linear-gradient(135deg, #E85D3C, #c44a2a); }
-    .game-card.ocean { background: linear-gradient(135deg, #0B8A8A, #076969); }
-    .game-card.purple { background: linear-gradient(135deg, #6B4FBB, #523a99); }
-    .game-card.green { background: linear-gradient(135deg, #2A9460, #1e6e47); }
-    .game-card.gold { background: linear-gradient(135deg, #D4A017, #a87c10); }
+    .game-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+
+    .game-card.coral { background: linear-gradient(135deg, #E85D3C, #b33c22); }
+    .game-card.ocean { background: linear-gradient(135deg, #0B8A8A, #065f5f); }
+    .game-card.purple { background: linear-gradient(135deg, #6B4FBB, #4a3490); }
+    .game-card.green { background: linear-gradient(135deg, #2A9460, #1a5c3b); }
+    .game-card.gold { background: linear-gradient(135deg, #D4A017, #9a720f); }
     .game-card.midnight { background: linear-gradient(135deg, #1a4a5e, #0D2B35); border: 1px solid rgba(255,255,255,0.1); }
 
-    .game-emoji { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .game-name { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
-    .game-desc { font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .game-emoji { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .game-name { font-size: 1.05rem; font-weight: 900; margin-bottom: 5px; }
+    .game-desc { font-size: 0.82rem; color: rgba(255,255,255,0.82); line-height: 1.55; }
 
     /* ── SITUATIONS ── */
     .situations-section {
-      background: rgba(11,138,138,0.06);
-      border-top: 1px solid rgba(11,138,138,0.15);
-      border-bottom: 1px solid rgba(11,138,138,0.15);
+      background: rgba(11,138,138,0.05);
+      border-top: 1px solid rgba(11,138,138,0.12);
+      border-bottom: 1px solid rgba(11,138,138,0.12);
     }
 
     .situations-grid {
@@ -394,100 +528,22 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 12px;
       padding: 14px 16px;
       font-size: 0.9rem;
       font-weight: 600;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    /* ── ABOUT ── */
-    .about-section { background: var(--midnight); }
-
-    .about-card {
-      background: linear-gradient(135deg, rgba(11,138,138,0.15), rgba(13,43,53,0.8));
-      border: 1px solid rgba(11,138,138,0.3);
-      border-radius: 24px;
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .about-quote {
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-      font-weight: 700;
-      line-height: 1.5;
-      color: var(--white);
-    }
-
-    .about-quote em {
-      color: var(--ocean-light);
-      font-style: normal;
-    }
-
-    .about-details { color: rgba(255,255,255,0.7); line-height: 1.7; }
-    .about-details p { margin-bottom: 16px; }
-
-    /* ── PRICING ── */
-    .pricing-section {
-      background: rgba(255,255,255,0.02);
-      text-align: center;
-    }
-
-    .price-card {
-      max-width: 480px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.05);
-      border: 2px solid rgba(11,138,138,0.4);
-      border-radius: 28px;
-      padding: 48px 40px;
-    }
-
-    .price-amount {
-      font-size: 4rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .price-label {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
-      margin-bottom: 32px;
-    }
-
-    .price-features {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 36px;
-    }
-
-    .price-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.85);
-    }
-
-    .price-features li:last-child { border-bottom: none; }
-
-    .check { color: var(--green); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-
-    .price-note {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      margin-top: 16px;
+    .situation-item:hover {
+      border-color: rgba(20,184,184,0.3);
+      background: rgba(20,184,184,0.06);
     }
 
     /* ── OKINAWA SPECIFIC ── */
-    .okinawa-section { background: var(--midnight); }
+    .okinawa-section { background: var(--midnight-deep); }
 
     .okinawa-grid {
       display: grid;
@@ -496,131 +552,120 @@
     }
 
     .okinawa-card {
-      background: rgba(212,160,23,0.08);
-      border: 1px solid rgba(212,160,23,0.2);
+      background: rgba(212,160,23,0.07);
+      border: 1px solid rgba(212,160,23,0.18);
       border-radius: 16px;
-      padding: 20px;
+      padding: 22px;
+      transition: border-color 0.2s, transform 0.2s;
     }
+
+    .okinawa-card:hover { border-color: rgba(212,160,23,0.4); transform: translateY(-3px); }
 
     .okinawa-card .jp {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--gold);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
-    .okinawa-card .romaji {
-      font-size: 0.85rem;
-      color: var(--ocean-light);
-      margin-bottom: 6px;
-      display: block;
+    .okinawa-card .romaji { font-size: 0.875rem; color: var(--ocean-light); margin-bottom: 7px; display: block; font-weight: 600; }
+    .okinawa-card .meaning { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .okinawa-card .meaning {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
+    .about-card {
+      background: linear-gradient(135deg, rgba(11,138,138,0.12), rgba(7,24,32,0.6));
+      border: 1px solid rgba(20,184,184,0.25);
+      border-radius: 28px;
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #060F13;
-      padding: 48px 24px;
+    .about-quote { font-size: clamp(1.25rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; }
+    .about-quote em { color: var(--ocean-light); font-style: normal; }
+    .about-details { color: rgba(255,255,255,0.65); line-height: 1.75; }
+    .about-details p { margin-bottom: 18px; font-size: 0.95rem; }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      background: var(--midnight-deep);
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .footer-logo {
-      font-size: 1.3rem;
-      font-weight: 900;
-      margin-bottom: 16px;
+    .price-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(20,184,184,0.35);
+      border-radius: 32px;
+      padding: 52px 44px;
+      box-shadow: 0 0 80px rgba(20,184,184,0.08);
     }
 
+    .price-amount { font-size: 5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 6px; letter-spacing: -0.04em; }
+    .price-label { color: rgba(255,255,255,0.45); font-size: 0.9rem; margin-bottom: 36px; }
+
+    .price-features { list-style: none; text-align: left; margin-bottom: 40px; }
+
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .price-features li:last-child { border-bottom: none; }
+    .check { color: var(--green); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .price-note { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 18px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #040d11;
+      padding: 52px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-logo { font-size: 1.4rem; font-weight: 900; margin-bottom: 20px; }
     .footer-logo span { color: var(--ocean-light); }
 
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
+    .footer-links { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
 
-    .footer-links a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
+    .footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
 
-    .footer-note {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.25);
-      line-height: 1.6;
-    }
-
-    /* ── PRIVACY PAGE ── */
-    .privacy-page {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 120px 24px 80px;
-    }
-
-    .privacy-page h1 {
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .privacy-page .updated {
-      color: rgba(255,255,255,0.4);
-      font-size: 0.875rem;
-      margin-bottom: 48px;
-    }
-
-    .privacy-page h2 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--ocean-light);
-      margin: 36px 0 12px;
-    }
-
-    .privacy-page p, .privacy-page li {
-      color: rgba(255,255,255,0.75);
-      line-height: 1.75;
-      margin-bottom: 12px;
-    }
-
-    .privacy-page ul { padding-left: 20px; }
-    .privacy-page strong { color: var(--white); }
+    .footer-note { font-size: 0.8rem; color: rgba(255,255,255,0.2); line-height: 1.7; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .screenshots-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .about-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
-      .hero { padding: 100px 20px 60px; }
+      .about-card { grid-template-columns: 1fr; gap: 32px; padding: 36px 28px; }
+      .hero { padding: 110px 20px 80px; }
+      .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 72px 20px; }
     }
 
-    /* ── ANIMATIONS ── */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @media (max-width: 480px) {
+      .screenshots-grid { grid-template-columns: 1fr; }
     }
-
-    .hero-shisa { animation: float 4s ease-in-out infinite; }
-
-    /* ── WAVE DIVIDER ── */
-    .wave {
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-    }
-
-    .wave svg { display: block; }
   </style>
 </head>
 <body>
@@ -628,12 +673,13 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    🦁 <span>Okinawa</span> Survival Guide
+    <span class="logo-shisa">🦁</span>
+    <span>Okinawa</span> Survival Guide
   </a>
   <ul class="nav-links">
+    <li><a href="#screenshots">Screenshots</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#games">Games</a></li>
-    <li><a href="#situations">Situations</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#" class="nav-cta">Download</a></li>
   </ul>
@@ -641,30 +687,41 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
   <div class="hero-badge">🌺 Built for Okinawa Military Life</div>
+
   <span class="hero-shisa">🦁</span>
+
+  <p class="hero-jp">沖縄サバイバルガイド</p>
+
   <h1 class="hero-title">
-    <span class="jp">沖縄サバイバルガイド</span>
-    Okinawa Survival Guide
+    Survive — and <em>thrive</em> — in Okinawa
   </h1>
+
   <p class="hero-sub">
-    Real Japanese for real life in Okinawa. Not textbook phrases — the words you actually need at the konbini, hospital, taxi, and typhoon shelter.
+    Real Japanese for real life. Not textbook phrases —
+    the words you actually need at the <strong>konbini, hospital, taxi, and typhoon shelter.</strong>
   </p>
+
   <div class="hero-price">💰 $7.99 one-time · No subscriptions · No ads · Own it forever</div>
+
   <div class="hero-buttons">
-    <a href="#" class="btn-primary">
-      ▶ Download on Google Play
-    </a>
-    <a href="#features" class="btn-secondary">
-      See what's inside →
-    </a>
+    <a href="#" class="btn-primary">▶ Download on Google Play</a>
+    <a href="#screenshots" class="btn-secondary">See what's inside →</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
   </div>
 </section>
 
 <!-- EMERGENCY BANNER -->
 <div class="emergency-banner">
   <h2>🚨 Emergency Phrases — Works Offline</h2>
-  <p>The #1 reason to download this app. Tap any phrase to speak it aloud in Japanese. Show your phone to a Japanese person in any emergency. No internet needed.</p>
+  <p>The #1 reason to download this app. Tap any phrase to speak it aloud in Japanese. Show your phone to anyone in an emergency. No internet needed.</p>
   <div class="emergency-phrases">
     <div class="emergency-phrase">
       <span class="jp">助けてください！</span>
@@ -693,12 +750,135 @@
   </div>
 </div>
 
+<!-- SCREENSHOTS -->
+<section class="screenshots-section" id="screenshots">
+  <div class="container">
+    <div class="section-label">See it in action</div>
+    <h2 class="section-title">Built for real Okinawa life</h2>
+    <p class="section-sub">Every screen designed around situations you'll actually face living on the island.</p>
+
+    <div class="screenshots-grid">
+      <!-- Home -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/homescreen.webp" alt="Home screen" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Home</div><br>Home Screen</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/homescreen-continued.webp" alt="Home screen continued" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Home</div><br>Dashboard</div>
+      </div>
+      <!-- Emergency -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/emergency-phrases.webp" alt="Emergency phrases" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Offline</div><br>Emergency Phrases</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/emergency-card-preview.webp" alt="Emergency card" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Tap to speak</div><br>One-tap Audio</div>
+      </div>
+      <!-- Flashcards -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/flashcard-front.webp" alt="Flashcard front" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Flashcards</div><br>Card Front</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/flashcard-back.webp" alt="Flashcard back" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Flashcards</div><br>Card Back</div>
+      </div>
+      <!-- Games -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/speed-flash.webp" alt="Speed Flash game" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Speed Flash</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/speed-flash-2.webp" alt="Speed Flash gameplay" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Speed Flash — Play</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/matching-game.webp" alt="Matching pairs game" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Matching Pairs</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/listening-game.webp" alt="Listening quiz" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Listening Quiz</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/build-it-game.webp" alt="Build It game" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Build It</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/directional-flash-game.webp" alt="Direction flashcards" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Direction Flashcards</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/prepositions-game.webp" alt="Prepositions game" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Prepositions</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/gps-voice-game.webp" alt="GPS voice game" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>GPS Voice Challenge</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/recognize-route.webp" alt="Recognize the route" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Recognize the Route</div>
+      </div>
+      <!-- Konbini -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/konbini-level-select.webp" alt="Konbini level select" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Simulator</div><br>Konbini — Levels</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/konbini-difficulty.webp" alt="Konbini difficulty" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Simulator</div><br>Konbini — Difficulty</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/konbini-in-game.webp" alt="Konbini simulator" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Simulator</div><br>Konbini — Play</div>
+      </div>
+      <!-- Stories -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/first-taxi-level-select.webp" alt="Story level select" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>First Taxi — Levels</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/first-taxi-ride.webp" alt="First taxi ride story" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>First Taxi Ride</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/first-taxi-full-japanese.webp" alt="Story in Japanese" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>Full Japanese Mode</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/first-taxi-more.webp" alt="More taxi ride" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>Taxi Ride Continued</div>
+      </div>
+      <!-- Roleplay -->
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/roleplay-menu.webp" alt="Roleplay scenarios menu" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>22 Scenarios</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/roleplay-level-select.webp" alt="Roleplay level select" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>Choose Your Level</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/roleplay-example.webp" alt="Roleplay conversation" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>Branching Conversation</div>
+      </div>
+      <div class="screenshot-card">
+        <img class="screenshot-img" src="screenshots/roleplay-full-japanese.webp" alt="Roleplay full Japanese" loading="lazy">
+        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>Full Japanese Mode</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="container">
     <div class="section-label">Everything you need</div>
     <h2 class="section-title">Learn Japanese the way<br>Okinawa actually works</h2>
-    <p class="section-sub">Every feature built around real situations you'll face living in Okinawa — not random vocabulary lists.</p>
+    <p class="section-sub">Every feature built around real situations you'll face — not random vocabulary lists.</p>
     <div class="features-grid">
       <div class="feature-card">
         <span class="feature-emoji">🎮</span>
@@ -713,12 +893,12 @@
       <div class="feature-card">
         <span class="feature-emoji">🗑️</span>
         <div class="feature-title">Trash Dash Game</div>
-        <div class="feature-desc">Items fall from the sky — slide the recycling bins to catch them in the right bin. Japan's trash system is strict. Learn it before you get the red sticker of shame!</div>
+        <div class="feature-desc">Items fall from the sky — slide bins to catch them. Japan's trash system is strict. Learn it before you get the red sticker of shame!</div>
       </div>
       <div class="feature-card">
         <span class="feature-emoji">🎭</span>
         <div class="feature-title">22 Roleplay Scenarios</div>
-        <div class="feature-desc">Choose your path in branching Japanese conversations. What happens depends on what you say! TTS speaks every Japanese line aloud.</div>
+        <div class="feature-desc">Choose your path in branching Japanese conversations. What happens depends on what you say! TTS speaks every line aloud.</div>
       </div>
       <div class="feature-card">
         <span class="feature-emoji">📖</span>
@@ -728,7 +908,7 @@
       <div class="feature-card">
         <span class="feature-emoji">🌺</span>
         <div class="feature-title">Culture & Etiquette Guide</div>
-        <div class="feature-desc">Bowing, shoes, gift giving, dining rules, onsen etiquette (tattoo policy!), and Okinawa-specific customs. Everything you need to avoid cultural mistakes.</div>
+        <div class="feature-desc">Bowing, shoes, gift giving, dining rules, onsen etiquette, and Okinawa-specific customs. Everything you need to avoid cultural mistakes.</div>
       </div>
       <div class="feature-card">
         <span class="feature-emoji">🗺️</span>
@@ -743,7 +923,7 @@
       <div class="feature-card">
         <span class="feature-emoji">🔊</span>
         <div class="feature-title">Audio Everything</div>
-        <div class="feature-desc">Every Japanese phrase, word and sentence can be spoken aloud. Tap any flashcard to hear authentic Japanese pronunciation. Works offline.</div>
+        <div class="feature-desc">Every phrase, word and sentence spoken aloud. Tap any flashcard to hear authentic Japanese pronunciation. Works offline.</div>
       </div>
     </div>
   </div>
@@ -779,12 +959,12 @@
       <div class="game-card gold">
         <span class="game-emoji">🗑️</span>
         <div class="game-name">Trash Dash</div>
-        <div class="game-desc">Slide bins to catch falling trash in the right category. Four difficulty modes including Typhoon!</div>
+        <div class="game-desc">Slide bins to catch falling trash correctly. Four modes including Typhoon!</div>
       </div>
       <div class="game-card midnight">
         <span class="game-emoji">🏪</span>
         <div class="game-name">Konbini Simulator</div>
-        <div class="game-desc">Three cashier personalities. Five unlockable scenarios. Handle every register situation like a pro.</div>
+        <div class="game-desc">Three cashier personalities. Five unlockable scenarios. Handle every register situation.</div>
       </div>
     </div>
   </div>
@@ -795,7 +975,7 @@
   <div class="container">
     <div class="section-label">Real situations covered</div>
     <h2 class="section-title">Everything you'll actually face</h2>
-    <p class="section-sub">Not random vocabulary — every scenario chosen because it really happens to families living in Okinawa.</p>
+    <p class="section-sub">Every scenario chosen because it really happens to families living in Okinawa.</p>
     <div class="situations-grid">
       <div class="situation-item">🏪 Konbini register</div>
       <div class="situation-item">🏥 Japanese hospital</div>
@@ -823,8 +1003,8 @@
 <section class="okinawa-section">
   <div class="container">
     <div class="section-label">🌺 Okinawa specific</div>
-    <h2 class="section-title">Not Japan — Okinawa</h2>
-    <p class="section-sub">Okinawa has its own dialect, culture and traditions. This app teaches you both Japanese AND what makes Okinawa unique.</p>
+    <h2 class="section-title">Not Japan — <em style="color:var(--gold);font-style:normal;">Okinawa</em></h2>
+    <p class="section-sub">Okinawa has its own dialect, culture and traditions. This app teaches you both.</p>
     <div class="okinawa-grid">
       <div class="okinawa-card">
         <span class="jp">はいさい！</span>
@@ -871,8 +1051,8 @@
         </p>
       </div>
       <div class="about-details">
-        <p>Every scenario, every phrase, every story in this app was chosen because it actually happened to a real family living in Okinawa.</p>
-        <p>Whether you're a brand new PCS arrival trying to survive your first week, or you've been here two years and want to actually connect with your Japanese neighbors — this app meets you where you are.</p>
+        <p>Every scenario, phrase, and story was chosen because it actually happened to a real family living in Okinawa.</p>
+        <p>Whether you're a brand new PCS arrival trying to survive your first week, or you've been here two years and want to connect with your Japanese neighbors — this app meets you where you are.</p>
         <p>Questions or feedback? <a href="mailto:okinawasurvivalguide@gmail.com" style="color: var(--ocean-light);">okinawasurvivalguide@gmail.com</a></p>
       </div>
     </div>
@@ -884,7 +1064,7 @@
   <div class="container">
     <div class="section-label">Simple pricing</div>
     <h2 class="section-title">Pay once. Own forever.</h2>
-    <p class="section-sub" style="margin: 0 auto 48px;">No subscriptions. No ads. No hidden fees. Buy it once and it's yours forever — including all future updates to existing content.</p>
+    <p class="section-sub" style="margin: 0 auto 56px;">No subscriptions. No ads. No hidden fees. Buy it once and it's yours — including all future updates.</p>
     <div class="price-card">
       <div class="price-amount">$7.99</div>
       <div class="price-label">one-time purchase · Android</div>
