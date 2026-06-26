@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okinawa Survival Guide — Learn Real Japanese for Life in Okinawa</title>
+  <meta name="description" content="The Japanese learning app built specifically for military families and expats living in Okinawa. Emergency phrases, games, stories and real-life scenarios. One-time purchase.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --midnight: #0D2B35;
+      --ocean: #0B8A8A;
+      --ocean-light: #14B8B8;
+      --coral: #E85D3C;
+      --sand: #F5EDD8;
+      --sand-dark: #EDE0C4;
+      --gold: #D4A017;
+      --green: #2A9460;
+      --sakura: #FFB7C5;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--midnight);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(13, 43, 53, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--ocean-light); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--coral);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-weight: 700 !important;
+    }
+
+    .nav-cta:hover { background: #d44d2c !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(11,138,138,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(232,93,60,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(11,138,138,0.15);
+      border: 1px solid rgba(11,138,138,0.4);
+      color: var(--ocean-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-shisa {
+      font-size: 72px;
+      margin-bottom: 16px;
+      display: block;
+      filter: drop-shadow(0 0 40px rgba(11,138,138,0.4));
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .hero-title .jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--ocean-light);
+      display: block;
+      font-size: clamp(1.1rem, 3vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    .hero-price {
+      display: inline-block;
+      background: rgba(212,160,23,0.15);
+      border: 1px solid rgba(212,160,23,0.4);
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 800;
+      padding: 16px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 32px rgba(232,93,60,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(232,93,60,0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+    /* ── EMERGENCY BANNER ── */
+    .emergency-banner {
+      background: linear-gradient(135deg, #8B0000, #CC0000);
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emergency-banner::before {
+      content: '🚨';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.05;
+      top: -40px;
+      right: -20px;
+    }
+
+    .emergency-banner h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .emergency-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .emergency-phrases {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .emergency-phrase {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 10px 16px;
+      text-align: left;
+    }
+
+    .emergency-phrase .jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .emergency-phrase .en {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--ocean-light);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-section {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(11,138,138,0.4);
+      transform: translateY(-3px);
+    }
+
+    .feature-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ── GAMES SECTION ── */
+    .games-section { background: var(--midnight); }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .game-card {
+      border-radius: 16px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-card.coral { background: linear-gradient(135deg, #E85D3C, #c44a2a); }
+    .game-card.ocean { background: linear-gradient(135deg, #0B8A8A, #076969); }
+    .game-card.purple { background: linear-gradient(135deg, #6B4FBB, #523a99); }
+    .game-card.green { background: linear-gradient(135deg, #2A9460, #1e6e47); }
+    .game-card.gold { background: linear-gradient(135deg, #D4A017, #a87c10); }
+    .game-card.midnight { background: linear-gradient(135deg, #1a4a5e, #0D2B35); border: 1px solid rgba(255,255,255,0.1); }
+
+    .game-emoji { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .game-name { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
+    .game-desc { font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+
+    /* ── SITUATIONS ── */
+    .situations-section {
+      background: rgba(11,138,138,0.06);
+      border-top: 1px solid rgba(11,138,138,0.15);
+      border-bottom: 1px solid rgba(11,138,138,0.15);
+    }
+
+    .situations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .situation-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ── ABOUT ── */
+    .about-section { background: var(--midnight); }
+
+    .about-card {
+      background: linear-gradient(135deg, rgba(11,138,138,0.15), rgba(13,43,53,0.8));
+      border: 1px solid rgba(11,138,138,0.3);
+      border-radius: 24px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-quote {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--white);
+    }
+
+    .about-quote em {
+      color: var(--ocean-light);
+      font-style: normal;
+    }
+
+    .about-details { color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .about-details p { margin-bottom: 16px; }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      background: rgba(255,255,255,0.02);
+      text-align: center;
+    }
+
+    .price-card {
+      max-width: 480px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(11,138,138,0.4);
+      border-radius: 28px;
+      padding: 48px 40px;
+    }
+
+    .price-amount {
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .price-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+
+    .price-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .price-features li:last-child { border-bottom: none; }
+
+    .check { color: var(--green); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+    .price-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 16px;
+    }
+
+    /* ── OKINAWA SPECIFIC ── */
+    .okinawa-section { background: var(--midnight); }
+
+    .okinawa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .okinawa-card {
+      background: rgba(212,160,23,0.08);
+      border: 1px solid rgba(212,160,23,0.2);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .okinawa-card .jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .okinawa-card .romaji {
+      font-size: 0.85rem;
+      color: var(--ocean-light);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .okinawa-card .meaning {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060F13;
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span { color: var(--ocean-light); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
+    }
+
+    /* ── PRIVACY PAGE ── */
+    .privacy-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+
+    .privacy-page h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .privacy-page .updated {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.875rem;
+      margin-bottom: 48px;
+    }
+
+    .privacy-page h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--ocean-light);
+      margin: 36px 0 12px;
+    }
+
+    .privacy-page p, .privacy-page li {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .privacy-page ul { padding-left: 20px; }
+    .privacy-page strong { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .about-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
+      .hero { padding: 100px 20px 60px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-shisa { animation: float 4s ease-in-out infinite; }
+
+    /* ── WAVE DIVIDER ── */
+    .wave {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave svg { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    🦁 <span>Okinawa</span> Survival Guide
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#games">Games</a></li>
+    <li><a href="#situations">Situations</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#" class="nav-cta">Download</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🌺 Built for Okinawa Military Life</div>
+  <span class="hero-shisa">🦁</span>
+  <h1 class="hero-title">
+    <span class="jp">沖縄サバイバルガイド</span>
+    Okinawa Survival Guide
+  </h1>
+  <p class="hero-sub">
+    Real Japanese for real life in Okinawa. Not textbook phrases — the words you actually need at the konbini, hospital, taxi, and typhoon shelter.
+  </p>
+  <div class="hero-price">💰 $7.99 one-time · No subscriptions · No ads · Own it forever</div>
+  <div class="hero-buttons">
+    <a href="#" class="btn-primary">
+      ▶ Download on Google Play
+    </a>
+    <a href="#features" class="btn-secondary">
+      See what's inside →
+    </a>
+  </div>
+</section>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner">
+  <h2>🚨 Emergency Phrases — Works Offline</h2>
+  <p>The #1 reason to download this app. Tap any phrase to speak it aloud in Japanese. Show your phone to a Japanese person in any emergency. No internet needed.</p>
+  <div class="emergency-phrases">
+    <div class="emergency-phrase">
+      <span class="jp">助けてください！</span>
+      <span class="en">Help me!</span>
+    </div>
+    <div class="emergency-phrase">
+      <span class="jp">救急車を呼んでください</span>
+      <span class="en">Call an ambulance</span>
+    </div>
+    <div class="emergency-phrase">
+      <span class="jp">避難所はどこですか？</span>
+      <span class="en">Where is the evacuation shelter?</span>
+    </div>
+    <div class="emergency-phrase">
+      <span class="jp">津波警報が出ていますか？</span>
+      <span class="en">Is there a tsunami warning?</span>
+    </div>
+    <div class="emergency-phrase">
+      <span class="jp">子どもがいなくなりました</span>
+      <span class="en">My child is missing</span>
+    </div>
+    <div class="emergency-phrase">
+      <span class="jp">火事です！</span>
+      <span class="en">Fire!</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-label">Everything you need</div>
+    <h2 class="section-title">Learn Japanese the way<br>Okinawa actually works</h2>
+    <p class="section-sub">Every feature built around real situations you'll face living in Okinawa — not random vocabulary lists.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-emoji">🎮</span>
+        <div class="feature-title">6 Vocabulary Games</div>
+        <div class="feature-desc">Speed Flash, Matching Pairs, Listening Quiz, Build Sentence, Daily Challenge and Weak Points Blitz. Learn through play, not drills.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🏪</span>
+        <div class="feature-title">Konbini Simulator</div>
+        <div class="feature-desc">Practice the real register experience with 3 cashier personalities and 5 unlockable scenarios. Handle point cards, age verification, gift wrapping and more.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🗑️</span>
+        <div class="feature-title">Trash Dash Game</div>
+        <div class="feature-desc">Items fall from the sky — slide the recycling bins to catch them in the right bin. Japan's trash system is strict. Learn it before you get the red sticker of shame!</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🎭</span>
+        <div class="feature-title">22 Roleplay Scenarios</div>
+        <div class="feature-desc">Choose your path in branching Japanese conversations. What happens depends on what you say! TTS speaks every Japanese line aloud.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">📖</span>
+        <div class="feature-title">12 Real-Life Stories</div>
+        <div class="feature-desc">Hospital visits, first taxi rides, typhoon season, Okinawa festivals. Read at 5 difficulty levels from full English to Japanese only.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🌺</span>
+        <div class="feature-title">Culture & Etiquette Guide</div>
+        <div class="feature-desc">Bowing, shoes, gift giving, dining rules, onsen etiquette (tattoo policy!), and Okinawa-specific customs. Everything you need to avoid cultural mistakes.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🗺️</span>
+        <div class="feature-title">Navigation Navigator</div>
+        <div class="feature-desc">GPS voice commands, direction flashcards, prepositions and a follow-the-route challenge. Never get lost in Okinawa again.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">📊</span>
+        <div class="feature-title">Progress Tracking</div>
+        <div class="feature-desc">Streaks, badges, XP and weak points tracking. The app learns what you struggle with and focuses your practice automatically.</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🔊</span>
+        <div class="feature-title">Audio Everything</div>
+        <div class="feature-desc">Every Japanese phrase, word and sentence can be spoken aloud. Tap any flashcard to hear authentic Japanese pronunciation. Works offline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAMES -->
+<section class="games-section" id="games">
+  <div class="container">
+    <div class="section-label">Games & Simulators</div>
+    <h2 class="section-title">Learning disguised as fun</h2>
+    <p class="section-sub">Six vocabulary games plus three unique simulators you won't find anywhere else.</p>
+    <div class="games-grid">
+      <div class="game-card coral">
+        <span class="game-emoji">⚡</span>
+        <div class="game-name">Speed Flash</div>
+        <div class="game-desc">Race the clock. Match Japanese to English before time runs out.</div>
+      </div>
+      <div class="game-card ocean">
+        <span class="game-emoji">🃏</span>
+        <div class="game-name">Matching Pairs</div>
+        <div class="game-desc">Flip cards to find matching Japanese and English pairs.</div>
+      </div>
+      <div class="game-card purple">
+        <span class="game-emoji">👂</span>
+        <div class="game-name">Listening Quiz</div>
+        <div class="game-desc">Hear the Japanese. Identify the meaning. Train your ear.</div>
+      </div>
+      <div class="game-card green">
+        <span class="game-emoji">🧱</span>
+        <div class="game-name">Build Sentence</div>
+        <div class="game-desc">Arrange word pieces to build Japanese sentences from scratch.</div>
+      </div>
+      <div class="game-card gold">
+        <span class="game-emoji">🗑️</span>
+        <div class="game-name">Trash Dash</div>
+        <div class="game-desc">Slide bins to catch falling trash in the right category. Four difficulty modes including Typhoon!</div>
+      </div>
+      <div class="game-card midnight">
+        <span class="game-emoji">🏪</span>
+        <div class="game-name">Konbini Simulator</div>
+        <div class="game-desc">Three cashier personalities. Five unlockable scenarios. Handle every register situation like a pro.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATIONS -->
+<section class="situations-section" id="situations">
+  <div class="container">
+    <div class="section-label">Real situations covered</div>
+    <h2 class="section-title">Everything you'll actually face</h2>
+    <p class="section-sub">Not random vocabulary — every scenario chosen because it really happens to families living in Okinawa.</p>
+    <div class="situations-grid">
+      <div class="situation-item">🏪 Konbini register</div>
+      <div class="situation-item">🏥 Japanese hospital</div>
+      <div class="situation-item">🚕 Taxi ride</div>
+      <div class="situation-item">🛒 Supermarket labels</div>
+      <div class="situation-item">🗑️ Trash sorting</div>
+      <div class="situation-item">🏦 Bank account</div>
+      <div class="situation-item">💇 Hair salon</div>
+      <div class="situation-item">💊 Drugstore</div>
+      <div class="situation-item">🌀 Typhoon prep</div>
+      <div class="situation-item">🍜 Restaurant</div>
+      <div class="situation-item">🍻 Izakaya rules</div>
+      <div class="situation-item">🏠 Moving in day</div>
+      <div class="situation-item">🚌 Bus & transport</div>
+      <div class="situation-item">🎌 Okinawa festivals</div>
+      <div class="situation-item">💅 Nail salon</div>
+      <div class="situation-item">🌊 Tsunami warning</div>
+      <div class="situation-item">🏫 School events</div>
+      <div class="situation-item">🤝 Meeting neighbors</div>
+    </div>
+  </div>
+</section>
+
+<!-- OKINAWA SPECIFIC -->
+<section class="okinawa-section">
+  <div class="container">
+    <div class="section-label">🌺 Okinawa specific</div>
+    <h2 class="section-title">Not Japan — Okinawa</h2>
+    <p class="section-sub">Okinawa has its own dialect, culture and traditions. This app teaches you both Japanese AND what makes Okinawa unique.</p>
+    <div class="okinawa-grid">
+      <div class="okinawa-card">
+        <span class="jp">はいさい！</span>
+        <span class="romaji">Haisai!</span>
+        <span class="meaning">Hello in Okinawan dialect (male) — locals will love this</span>
+      </div>
+      <div class="okinawa-card">
+        <span class="jp">はいたい！</span>
+        <span class="romaji">Haitai!</span>
+        <span class="meaning">Hello in Okinawan dialect (female) — instant smiles guaranteed</span>
+      </div>
+      <div class="okinawa-card">
+        <span class="jp">にふぇーでびる！</span>
+        <span class="romaji">Nifee deebiru!</span>
+        <span class="meaning">Thank you in Okinawan — the phrase that opens every door</span>
+      </div>
+      <div class="okinawa-card">
+        <span class="jp">ぬちどぅ宝</span>
+        <span class="romaji">Nuchi du takara</span>
+        <span class="meaning">Life is the greatest treasure — the famous Okinawan proverb</span>
+      </div>
+      <div class="okinawa-card">
+        <span class="jp">サーターアンダギー</span>
+        <span class="romaji">Saataa andagii</span>
+        <span class="meaning">Okinawan fried doughnuts — a must-try at every festival</span>
+      </div>
+      <div class="okinawa-card">
+        <span class="jp">エイサー</span>
+        <span class="romaji">Eisaa</span>
+        <span class="meaning">Traditional Okinawan drum dance — the heartbeat of the island</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-card">
+      <div>
+        <div class="section-label">Why this app exists</div>
+        <p class="about-quote">
+          "Created by someone who moved to Okinawa with their spouse and learned everything the <em>hard way</em> — so you don't have to."
+        </p>
+      </div>
+      <div class="about-details">
+        <p>Every scenario, every phrase, every story in this app was chosen because it actually happened to a real family living in Okinawa.</p>
+        <p>Whether you're a brand new PCS arrival trying to survive your first week, or you've been here two years and want to actually connect with your Japanese neighbors — this app meets you where you are.</p>
+        <p>Questions or feedback? <a href="mailto:okinawasurvivalguide@gmail.com" style="color: var(--ocean-light);">okinawasurvivalguide@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-label">Simple pricing</div>
+    <h2 class="section-title">Pay once. Own forever.</h2>
+    <p class="section-sub" style="margin: 0 auto 48px;">No subscriptions. No ads. No hidden fees. Buy it once and it's yours forever — including all future updates to existing content.</p>
+    <div class="price-card">
+      <div class="price-amount">$7.99</div>
+      <div class="price-label">one-time purchase · Android</div>
+      <ul class="price-features">
+        <li><span class="check">✅</span> 300+ vocabulary words with audio</li>
+        <li><span class="check">✅</span> 22 branching roleplay scenarios</li>
+        <li><span class="check">✅</span> 12 original stories at 5 reading levels</li>
+        <li><span class="check">✅</span> 6 vocabulary games + 3 simulators</li>
+        <li><span class="check">✅</span> Emergency phrases — works offline</li>
+        <li><span class="check">✅</span> Culture & etiquette guide</li>
+        <li><span class="check">✅</span> Hiragana & Katakana flashcards</li>
+        <li><span class="check">✅</span> Progress tracking with badges</li>
+        <li><span class="check">✅</span> No subscriptions ever</li>
+        <li><span class="check">✅</span> No ads ever</li>
+      </ul>
+      <a href="#" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.05rem;">
+        ▶ Download on Google Play
+      </a>
+      <p class="price-note">Available on Android. iOS coming soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🦁 <span>Okinawa</span> Survival Guide</div>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#games">Games</a>
+    <a href="#pricing">Pricing</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:okinawasurvivalguide@gmail.com">Contact</a>
+  </div>
+  <p class="footer-note">
+    © 2026 Okinawa Survival Guide. All rights reserved.<br>
+    Not affiliated with the US Military or Department of Defense.<br>
+    Available on Google Play. iOS coming soon.
+  </p>
+</footer>
+
+</body>
+</html>
