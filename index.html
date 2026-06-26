@@ -391,83 +391,64 @@
     .screenshots-section .section-label { text-align: center; }
     .screenshots-section .section-sub { text-align: center; margin-left: auto; margin-right: auto; }
 
-    /* screenshot category tabs */
-    .ss-tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-      justify-content: center;
-    }
+    /* ── SCREENSHOT ROWS ── */
+    .ss-group { margin-bottom: 44px; }
 
-    .ss-tab {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.6);
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 7px 16px;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .ss-tab:hover, .ss-tab.active {
-      background: rgba(20,184,184,0.15);
-      border-color: rgba(20,184,184,0.4);
-      color: var(--ocean-light);
-    }
-
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .screenshot-card {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    }
-
-    .screenshot-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(20,184,184,0.3);
-      border-color: rgba(20,184,184,0.3);
-    }
-
-    .screenshot-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .screenshot-label {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 20px 16px 16px;
-      background: linear-gradient(transparent, rgba(7,24,32,0.95));
-      font-size: 0.875rem;
-      font-weight: 700;
-    }
-
-    .screenshot-tag {
-      display: inline-block;
-      background: rgba(20,184,184,0.2);
-      border: 1px solid rgba(20,184,184,0.4);
-      color: var(--ocean-light);
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 3px 9px;
-      border-radius: 100px;
-      letter-spacing: 0.06em;
+    .ss-group-title {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--ocean-light);
+      margin-bottom: 14px;
+      padding-left: 2px;
     }
+
+    .ss-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 14px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ss-row::-webkit-scrollbar { height: 3px; }
+    .ss-row::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 2px; }
+    .ss-row::-webkit-scrollbar-thumb { background: rgba(20,184,184,0.35); border-radius: 2px; }
+
+    .ss-phone {
+      flex-shrink: 0;
+      width: 160px;
+      scroll-snap-align: start;
+      cursor: pointer;
+    }
+
+    .ss-phone img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.05);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+
+    .ss-phone:hover img {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(20,184,184,0.35);
+      border-color: rgba(20,184,184,0.4);
+    }
+
+    .ss-caption {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      margin-top: 8px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .screenshot-card { cursor: pointer; }
 
     /* ── FEATURES ── */
     .features-section {
@@ -735,21 +716,13 @@
     .screenshot-card { cursor: pointer; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .screenshots-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .about-card { grid-template-columns: 1fr; gap: 32px; padding: 36px 28px; }
       .hero { padding: 110px 20px 80px; }
-      .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+      .ss-phone { width: 140px; }
       section { padding: 72px 20px; }
-    }
-
-    @media (max-width: 480px) {
-      .screenshots-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -842,117 +815,85 @@
     <h2 class="section-title">Built for real Okinawa life</h2>
     <p class="section-sub">Every screen designed around situations you'll actually face living on the island.</p>
 
-    <div class="screenshots-grid">
-      <!-- Home -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/homescreen.webp" alt="Home screen" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Home</div><br>Home Screen</div>
+    <!-- Home -->
+    <div class="ss-group">
+      <div class="ss-group-title">🏠 Home Screen</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/homescreen.webp" alt="Home screen" loading="lazy"><p class="ss-caption">Home</p></div>
+        <div class="ss-phone"><img src="screenshots/homescreen-continued.webp" alt="Dashboard" loading="lazy"><p class="ss-caption">Dashboard</p></div>
       </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/homescreen-continued.webp" alt="Home screen continued" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Home</div><br>Dashboard</div>
+    </div>
+
+    <!-- Emergency -->
+    <div class="ss-group">
+      <div class="ss-group-title">🚨 Emergency Phrases — Works Offline</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/emergency-phrases.webp" alt="Emergency phrases" loading="lazy"><p class="ss-caption">Emergency Phrases</p></div>
+        <div class="ss-phone"><img src="screenshots/emergency-card-preview.webp" alt="Emergency card" loading="lazy"><p class="ss-caption">Tap to Speak</p></div>
       </div>
-      <!-- Emergency -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/emergency-phrases.webp" alt="Emergency phrases" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Offline</div><br>Emergency Phrases</div>
+    </div>
+
+    <!-- Flashcards -->
+    <div class="ss-group">
+      <div class="ss-group-title">🃏 Flashcards — 19 Decks</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/flashcard-front.webp" alt="Flashcard front" loading="lazy"><p class="ss-caption">Card Front</p></div>
+        <div class="ss-phone"><img src="screenshots/flashcard-back.webp" alt="Flashcard back" loading="lazy"><p class="ss-caption">Card Back</p></div>
       </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/emergency-card-preview.webp" alt="Emergency card" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Tap to speak</div><br>One-tap Audio</div>
+    </div>
+
+    <!-- Games -->
+    <div class="ss-group">
+      <div class="ss-group-title">🎮 Vocabulary Games</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/speed-flash.webp" alt="Speed Flash" loading="lazy"><p class="ss-caption">Speed Flash</p></div>
+        <div class="ss-phone"><img src="screenshots/speed-flash-2.webp" alt="Speed Flash play" loading="lazy"><p class="ss-caption">Speed Flash — Play</p></div>
+        <div class="ss-phone"><img src="screenshots/matching-game.webp" alt="Matching Pairs" loading="lazy"><p class="ss-caption">Matching Pairs</p></div>
+        <div class="ss-phone"><img src="screenshots/listening-game.webp" alt="Listening Quiz" loading="lazy"><p class="ss-caption">Listening Quiz</p></div>
+        <div class="ss-phone"><img src="screenshots/build-it-game.webp" alt="Build It" loading="lazy"><p class="ss-caption">Build Sentence</p></div>
       </div>
-      <!-- Flashcards -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/flashcard-front.webp" alt="Flashcard front" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Flashcards</div><br>Card Front</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="ss-group">
+      <div class="ss-group-title">🗺️ Navigation Navigator</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/gps-voice-game.webp" alt="GPS Voice" loading="lazy"><p class="ss-caption">GPS Voice Challenge</p></div>
+        <div class="ss-phone"><img src="screenshots/directional-flash-game.webp" alt="Direction Flash" loading="lazy"><p class="ss-caption">Direction Flashcards</p></div>
+        <div class="ss-phone"><img src="screenshots/prepositions-game.webp" alt="Prepositions" loading="lazy"><p class="ss-caption">Prepositions Game</p></div>
+        <div class="ss-phone"><img src="screenshots/recognize-route.webp" alt="Recognize Route" loading="lazy"><p class="ss-caption">Recognize the Route</p></div>
       </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/flashcard-back.webp" alt="Flashcard back" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Flashcards</div><br>Card Back</div>
+    </div>
+
+    <!-- Konbini -->
+    <div class="ss-group">
+      <div class="ss-group-title">🏪 Konbini Simulator</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/konbini-level-select.webp" alt="Konbini levels" loading="lazy"><p class="ss-caption">Choose Scenario</p></div>
+        <div class="ss-phone"><img src="screenshots/konbini-difficulty.webp" alt="Konbini difficulty" loading="lazy"><p class="ss-caption">Set Difficulty</p></div>
+        <div class="ss-phone"><img src="screenshots/konbini-in-game.webp" alt="Konbini play" loading="lazy"><p class="ss-caption">In the Store</p></div>
       </div>
-      <!-- Games -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/speed-flash.webp" alt="Speed Flash game" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Speed Flash</div>
+    </div>
+
+    <!-- Stories -->
+    <div class="ss-group">
+      <div class="ss-group-title">📖 Stories — 12 at 5 Reading Levels</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/first-taxi-level-select.webp" alt="Story levels" loading="lazy"><p class="ss-caption">Choose Level</p></div>
+        <div class="ss-phone"><img src="screenshots/first-taxi-ride.webp" alt="First Taxi Ride" loading="lazy"><p class="ss-caption">First Taxi Ride</p></div>
+        <div class="ss-phone"><img src="screenshots/first-taxi-more.webp" alt="Story continued" loading="lazy"><p class="ss-caption">Story Continued</p></div>
+        <div class="ss-phone"><img src="screenshots/first-taxi-full-japanese.webp" alt="Full Japanese" loading="lazy"><p class="ss-caption">Full Japanese Mode</p></div>
       </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/speed-flash-2.webp" alt="Speed Flash gameplay" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Speed Flash — Play</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/matching-game.webp" alt="Matching pairs game" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Matching Pairs</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/listening-game.webp" alt="Listening quiz" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Listening Quiz</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/build-it-game.webp" alt="Build It game" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Build It</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/directional-flash-game.webp" alt="Direction flashcards" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Direction Flashcards</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/prepositions-game.webp" alt="Prepositions game" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Prepositions</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/gps-voice-game.webp" alt="GPS voice game" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>GPS Voice Challenge</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/recognize-route.webp" alt="Recognize the route" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Game</div><br>Recognize the Route</div>
-      </div>
-      <!-- Konbini -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/konbini-level-select.webp" alt="Konbini level select" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Simulator</div><br>Konbini — Levels</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/konbini-difficulty.webp" alt="Konbini difficulty" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Simulator</div><br>Konbini — Difficulty</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/konbini-in-game.webp" alt="Konbini simulator" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Simulator</div><br>Konbini — Play</div>
-      </div>
-      <!-- Stories -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/first-taxi-level-select.webp" alt="Story level select" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>First Taxi — Levels</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/first-taxi-ride.webp" alt="First taxi ride story" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>First Taxi Ride</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/first-taxi-full-japanese.webp" alt="Story in Japanese" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>Full Japanese Mode</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/first-taxi-more.webp" alt="More taxi ride" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Story</div><br>Taxi Ride Continued</div>
-      </div>
-      <!-- Roleplay -->
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/roleplay-menu.webp" alt="Roleplay scenarios menu" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>22 Scenarios</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/roleplay-level-select.webp" alt="Roleplay level select" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>Choose Your Level</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/roleplay-example.webp" alt="Roleplay conversation" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>Branching Conversation</div>
-      </div>
-      <div class="screenshot-card">
-        <img class="screenshot-img" src="screenshots/roleplay-full-japanese.webp" alt="Roleplay full Japanese" loading="lazy">
-        <div class="screenshot-label"><div class="screenshot-tag">Roleplay</div><br>Full Japanese Mode</div>
+    </div>
+
+    <!-- Roleplay -->
+    <div class="ss-group">
+      <div class="ss-group-title">🎭 Roleplay Scenarios — 22 Branching Conversations</div>
+      <div class="ss-row">
+        <div class="ss-phone"><img src="screenshots/roleplay-menu.webp" alt="Roleplay menu" loading="lazy"><p class="ss-caption">22 Scenarios</p></div>
+        <div class="ss-phone"><img src="screenshots/roleplay-level-select.webp" alt="Roleplay level" loading="lazy"><p class="ss-caption">Choose Level</p></div>
+        <div class="ss-phone"><img src="screenshots/roleplay-example.webp" alt="Roleplay conversation" loading="lazy"><p class="ss-caption">Branching Dialogue</p></div>
+        <div class="ss-phone"><img src="screenshots/roleplay-full-japanese.webp" alt="Roleplay Japanese" loading="lazy"><p class="ss-caption">Full Japanese Mode</p></div>
       </div>
     </div>
   </div>
@@ -971,9 +912,14 @@
     <p class="section-sub">Every feature built around real situations you'll face — not random vocabulary lists.</p>
     <div class="features-grid">
       <div class="feature-card">
+        <span class="feature-emoji">🃏</span>
+        <div class="feature-title">19 Flashcard Decks</div>
+        <div class="feature-desc">Every vocabulary set has its own flashcard deck with tap-to-hear audio, Got it / Still learning tracking and swipe navigation. Decks include: Hiragana, Katakana, Essential Phrases, Konbini, Hospital, Restaurant, Supermarket, Transport, Trash, Appliances, Safety, Bank & Post Office, Hair Salon, Drugstore, Nail Salon, Days & Time, Counters, Navigation & Directions, and Shopping Essentials.</div>
+      </div>
+      <div class="feature-card">
         <span class="feature-emoji">🎮</span>
-        <div class="feature-title">6 Vocabulary Games</div>
-        <div class="feature-desc">Speed Flash, Matching Pairs, Listening Quiz, Build Sentence, Daily Challenge and Weak Points Blitz. Learn through play, not drills.</div>
+        <div class="feature-title">9 Games & Simulators</div>
+        <div class="feature-desc">Speed Flash, Matching Pairs, Listening Quiz, Build Sentence, Daily Challenge, Weak Points Blitz, Trash Dash, Konbini Simulator, and Navigation Navigator. Learn through play, not drills.</div>
       </div>
       <div class="feature-card">
         <span class="feature-emoji">🏪</span>
@@ -1024,7 +970,7 @@
   <div class="container">
     <div class="section-label">Games & Simulators</div>
     <h2 class="section-title">Learning disguised as fun</h2>
-    <p class="section-sub">Six vocabulary games plus three unique simulators you won't find anywhere else.</p>
+    <p class="section-sub">9 games and simulators — including 4 Navigation Navigator mini-games you won't find anywhere else.</p>
     <div class="games-grid">
       <div class="game-card coral">
         <span class="game-emoji">⚡</span>
@@ -1187,15 +1133,15 @@
       <div class="price-label">one-time purchase · Android</div>
       <ul class="price-features">
         <li><span class="check">✅</span> 300+ vocabulary words with audio</li>
+        <li><span class="check">✅</span> 19 flashcard decks with tap-to-hear audio</li>
         <li><span class="check">✅</span> 22 branching roleplay scenarios</li>
         <li><span class="check">✅</span> 12 original stories at 5 reading levels</li>
-        <li><span class="check">✅</span> 6 vocabulary games + 3 simulators</li>
+        <li><span class="check">✅</span> 9 games & simulators</li>
         <li><span class="check">✅</span> Emergency phrases — works offline</li>
-        <li><span class="check">✅</span> Culture & etiquette guide</li>
-        <li><span class="check">✅</span> Hiragana & Katakana flashcards</li>
-        <li><span class="check">✅</span> Progress tracking with badges</li>
-        <li><span class="check">✅</span> No subscriptions ever</li>
-        <li><span class="check">✅</span> No ads ever</li>
+        <li><span class="check">✅</span> Culture & etiquette guide (7 sections)</li>
+        <li><span class="check">✅</span> 14+ real-life situations covered</li>
+        <li><span class="check">✅</span> Progress tracking with badges & streaks</li>
+        <li><span class="check">✅</span> No subscriptions ever · No ads ever</li>
       </ul>
       <a href="#" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.05rem;">
         ▶ Download on Google Play
@@ -1258,12 +1204,11 @@
     }
   });
 
-  document.querySelectorAll('.screenshot-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      const img = card.querySelector('.screenshot-img');
-      const label = card.querySelector('.screenshot-label');
-      const caption = label ? label.textContent.trim().replace(/\s+/g, ' ') : '';
-      openLightbox(img.src, caption);
+  document.querySelectorAll('.ss-phone').forEach(function(phone) {
+    phone.addEventListener('click', function() {
+      const img = phone.querySelector('img');
+      const caption = phone.querySelector('.ss-caption');
+      openLightbox(img.src, caption ? caption.textContent.trim() : '');
     });
   });
 </script>
